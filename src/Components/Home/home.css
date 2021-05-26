@@ -1,0 +1,106 @@
+.displayCard {
+  font-size: "25px";
+  padding-left: "3px";
+  padding-top: "0px";
+}
+.cardText {
+  font-size: 11px;
+  font-weight: bold;
+  color: #7a7a7a;
+}
+
+.cardLayout {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #013a60 !important;
+  border-bottom: 5px solid #013a60 !important;
+  border-radius: 5px;
+}
+.displayCardValue {
+  font-size: 22px;
+}
+.tabButtons.btn.btn-primary {
+  background-color: transparent !important;
+  border: none;
+  color: #013a60 !important;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-right: 5px;
+  border-bottom: 5px solid #013a60 !important;
+  border-radius: 5px;
+}
+.depositButton.btn.btn-primary {
+  color: #013a60 !important;
+  background-color: transparent !important;
+  border: 1px solid #013a60 !important;
+}
+.btnIcons {
+  font-size: 25px;
+  padding-right: 5px;
+}
+.headBack {
+  background-color: #e7e7e7;
+  box-shadow: 0 0px 2px #7a7a7a;
+}
+/* .table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: none !important;
+} */
+
+.tableShadow {
+  box-shadow: 0 0px 10px #e7e7e7;
+}
+.walletButton.btn.btn-primary {
+  width: 100%;
+  font-weight: 500;
+
+  color: #013a60 !important;
+  background-color: transparent !important;
+  border: 1px solid #013a60 !important;
+}
+.incomeSummary {
+  /* border: 1px solid #e7e7e7; */
+  border-radius: 5px;
+  box-shadow: 0 0px 10px #e7e7e7;
+}
+.incomeSummaryTable {
+  font-size: 13px !important;
+  color: #013a60;
+  padding: 0.75rem;
+
+  vertical-align: top;
+  border-top: 1px solid #e7e7e7 !important;
+}
+.stakedSymbol {
+  display: block;
+  width: 20px;
+  border-top: 5px solid #013a60;
+  position: absolute;
+  top: 10px;
+  margin-right: 10px;
+}
+.liquidSymbol {
+  display: block;
+  width: 20px;
+  border-top: 5px solid #333;
+  position: absolute;
+  top: 10px;
+  margin-right: 10px;
+}
+.stakedValue {
+  font-size: 12px;
+}
+.footer {
+  display: block;
+  float: right;
+  color: #7a7a7a;
+  padding: 5px;
+}
+.primarycolor {
+  color: #013a60 !important;
+}
+.textColor {
+  color: #7a7a7a !important;
+}
