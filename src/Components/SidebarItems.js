@@ -1,19 +1,15 @@
 const SidebarItems = [
   {
     name: "Dashboard",
-    route: "/",
-  },
-  {
-    name: "Staking",
-    route: "/staking",
-  },
-  {
-    name: "Mining",
-    route: "/mining",
+    route: "/dashboard",
   },
   {
     name: "Help",
     route: "/help",
+  },
+  {
+    name: "Logout",
+    route: "/logout",
   },
 ];
 

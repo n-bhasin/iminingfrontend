@@ -30,13 +30,13 @@ export default function Login() {
 
       //   await Auth.signIn(fields.email, fields.password);
       userHasAuthenticated(true);
-      history.push("/");
+      history.push("/dashboard");
     } catch (error) {
       onError(error);
       setIsLoading(false);
     }
   }
-  if (auth.getCurrentUser()) return <Redirect to="/" />;
+  if (auth.getCurrentUser()) return <Redirect to="/dashboard" />;
   return (
     <div className="Login">
       <Form onSubmit={handleSubmit}>

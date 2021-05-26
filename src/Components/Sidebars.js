@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SidebarItems from "./SidebarItems";
 import { Link } from "react-router-dom";
-
+import auth from "../services/auth";
+import { useAppContext } from "../libs/contextLibs";
 import {
   ProSidebar,
   Menu,
@@ -18,13 +19,15 @@ import {
   AiOutlinePieChart,
 } from "react-icons/ai";
 import { GiMining } from "react-icons/gi";
-import { GrPieChart } from "react-icons/gr";
+import { FiLogOut } from "react-icons/fi";
 import { AiOutlineDashboard } from "react-icons/ai";
 
 import "react-pro-sidebar/dist/css/styles.css";
 import "../Components/Sidebar/sidebar.css";
+
 function Sidebars(props, { defaultActive }) {
   const location = props.history.location;
+  const { userHasAuthenticated } = useAppContext();
   console.log(location);
 
   const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
@@ -44,6 +47,11 @@ function Sidebars(props, { defaultActive }) {
       return "/" + path;
     }
     return path;
+  }
+  async function handleLogout() {
+    await auth.logout();
+    userHasAuthenticated(false);
+    props.history.push("/login");
   }
   const [menuCollapse, setMenuCollapse] = useState(false);
 
@@ -85,7 +93,18 @@ function Sidebars(props, { defaultActive }) {
               active={0 === activeIndex}
               icon={<AiOutlineDashboard />}
             >
-              <Link to="/">Ethereum</Link>
+              <Link to="/dashboard">Ethereum</Link>
+            </MenuItem>
+            <MenuItem icon={<FiHelpCircle />} active={1 === activeIndex}>
+              <Link to="/help">Help</Link>
+            </MenuItem>
+            <MenuItem
+              //   key={item.name}
+              active={2 === activeIndex}
+              icon={<FiLogOut />}
+              onClick={handleLogout}
+            >
+              Logout
             </MenuItem>
             {/* */}
             {/* <MenuItem icon={<AiOutlinePieChart />} active={1 === activeIndex}>
@@ -95,9 +114,6 @@ function Sidebars(props, { defaultActive }) {
             <MenuItem icon={<GiMining />} active={2 === activeIndex}>
               <Link to="/mining">Mining</Link>
             </MenuItem> */}
-            <MenuItem icon={<FiHelpCircle />} active={3 === activeIndex}>
-              <Link to="/help">Help</Link>
-            </MenuItem>
           </Menu>
           {/* })} */}
         </SidebarContent>

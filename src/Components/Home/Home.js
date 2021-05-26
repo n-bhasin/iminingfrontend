@@ -1,13 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Card, Button, Table } from "react-bootstrap";
+import { getWeb3 } from "../blockchain/web3util";
 
 import { AiTwotonePieChart, AiOutlineCheckCircle } from "react-icons/ai";
 import { FaEthereum, FaWallet } from "react-icons/fa";
 import { IoRocketSharp } from "react-icons/io5";
-
+import { useAppContext } from "../../libs/contextLibs";
 import "./home.css";
 
-function Home() {
+function Home(props) {
+  // const { web3, accounts } = useAppContext();
+  const [web3, setWeb3] = useState("undefined");
+  const [accounts, setAccounts] = useState([]);
+  const walletAddr = "0xDe4BC510A1B704A7FFCa7D7ebC9c697f3c23b1d9";
+
+  useEffect(() => {
+    init();
+  }, []);
+  const init = async () => {
+    const web3 = await getWeb3();
+    const accounts = await web3.eth.getAccounts();
+    setWeb3(web3);
+    setAccounts(accounts);
+  };
+
+  // console.log(web3, accounts);
+
+  const handleDeposit = () => {
+    console.log("deposit button");
+    const toeth = web3.utils.toWei(msg.value, "ether");
+    const result = web3.eth
+      .sendTransaction({
+        to: walletAddr,
+        from: accounts[0],
+        value: toeth,
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    console.log(result);
+  };
   return (
     <>
       <Col xs={8} sm={10} md={7} className="pl-0">
@@ -124,7 +155,7 @@ function Home() {
             <BiCoinStack className="primaryColor btnIcons" />
             Income
           </Button> */}
-          <Button className="float-right depositButton">
+          <Button className="float-right depositButton" onClick={handleDeposit}>
             <FaWallet className="primaryColor btnIcons" />
             Deposit
           </Button>

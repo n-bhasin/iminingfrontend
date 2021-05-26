@@ -2,7 +2,8 @@ import http from "./httpService";
 import jwtDecode from "jwt-decode";
 // import { apiUrl } from "../config.json";
 
-const apiEndPoint = "http://localhost:3100/api/imining/auth/login";
+const apiEndPoint =
+  "https://iminingbackend.herokuapp.com/api/imining/auth/login";
 const tokenKey = "token";
 
 http.setJwt(getJwt());

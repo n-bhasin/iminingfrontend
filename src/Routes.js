@@ -15,7 +15,7 @@ import Layout from "./Components/Layout";
 import Login from "./Components/login/Login";
 export default function Routes() {
   const { isAuthenticated } = useAppContext();
-  console.log(isAuthenticated);
+
   return (
     <Router>
       <Route
@@ -24,8 +24,13 @@ export default function Routes() {
             return (
               <Layout {...props}>
                 <Switch>
-                  <Route exact path="/" component={Home}></Route>
-                  <Route exact path="/home" component={Home}></Route>
+                  <Route
+                    exact
+                    path="/dashboard"
+                    component={Home}
+                    props={props}
+                  ></Route>
+
                   <Route path="/staking" exact component={Staking}></Route>
                   <Route path="/mining" component={Mining}></Route>
                   <Route path="/help" component={Help}></Route>
